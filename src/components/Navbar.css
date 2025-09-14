@@ -1,0 +1,125 @@
+.navbar {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.8rem 1rem;
+  transition: all 0.4s ease-in-out;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.navbar-brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c3e50 !important;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+.navbar-brand:hover {
+  color: #007bff !important;
+}
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333 !important;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-link:hover {
+  color: #007bff !important;
+}
+.dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  padding: 10px 0;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+  animation: dropdownFade 0.3s ease forwards;
+}
+.dropdown-item {
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+.dropdown-item:hover {
+  background: #007bff;
+  color: #fff;
+  border-radius: 5px;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-link svg {
+  font-size: 1.4rem;
+  color: #444;
+  transition: color 0.3s ease;
+}
+.nav-link:hover svg {
+  color: #007bff;
+}
+.nav-link .badge {
+  font-size: 0.7rem;
+  padding: 0.35em 0.55em;
+  background: #dc3545 !important;
+  font-weight: 600;
+}
+.navbar .nav-item:last-child .nav-link {
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: #007bff;
+  color: #fff !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.navbar .nav-item:last-child .nav-link:hover {
+  background: #0056b3;
+}
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.navbar-toggler span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #333;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.navbar-toggler.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.navbar-toggler.active span:nth-child(2) {
+  opacity: 0;
+}
+.navbar-toggler.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+@media (max-width: 991px) {
+  .navbar-nav {
+    margin-top: 15px;
+    text-align: center;
+    animation: slideDown 0.4s ease forwards;
+  }
+  .nav-item {
+    margin-bottom: 10px;
+  }
+  .navbar .nav-item:last-child .nav-link {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+

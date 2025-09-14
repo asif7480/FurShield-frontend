@@ -1,0 +1,67 @@
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f9fa;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* Page Content */
+.content {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin: 20px;
+  padding: 20px;
+}
+
+/* ===== Overlay for Mobile Sidebar ===== */
+.overlay {
+  display: none;
+}
+
+/* Show overlay when sidebar opens (mobile only) */
+@media (max-width: 992px) {
+  .main-content {
+    width: 100%;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+  }
+}
+
+/* Layout Wrapper */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar ke side me content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Page Content styling */
+.careartical-page {
+  padding: 20px;
+}
+

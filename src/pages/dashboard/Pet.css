@@ -1,0 +1,94 @@
+
+.pets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.btn-add {
+  background: #28a745;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.btn-add:hover {
+  background: #218838;
+}
+
+
+.pets-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pets-table th,
+.pets-table td {
+  padding: 12px 15px;
+  vertical-align: middle;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-badge.healthy {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.checkup {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.sick {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Action Buttons */
+.btn-action {
+  border: none;
+  outline: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 6px;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-action.edit {
+  background: #ffc107;
+  color: #212529;
+}
+
+.btn-action.edit:hover {
+  background: #e0a800;
+  color: #fff;
+}
+
+.btn-action.delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.btn-action.delete:hover {
+  background: #bb2d3b;
+}
+
+/* ✅ Align Actions Column Right */
+.pets-table td.text-center,
+.pets-table th.text-center {
+  text-align: right !important;
+}

@@ -1,0 +1,32 @@
+.shelter-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.shelter-card {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+}
+.shelter-card:hover {
+  transform: translateY(-5px);
+}
+.shelter-card h2 {
+  color: #2193b0;
+  font-weight: 700;
+}
+.shelter-card .btn-success {
+  background-color: #28a745;
+  border: none;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+.shelter-card .btn-success:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}

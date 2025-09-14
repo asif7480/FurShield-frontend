@@ -1,0 +1,38 @@
+.updatepet-page {
+  max-width: 600px;
+  margin: auto;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.pet-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pet-form input,
+.pet-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-submit {
+  background: #ffc107;
+  color: #212529;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  background: #e0a800;
+  color: #fff;
+}

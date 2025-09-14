@@ -1,0 +1,27 @@
+.footer {
+  background: linear-gradient(135deg, #007bff, #6f42c1);
+  color: #f8f9fa;
+  font-size: 0.9rem;
+  padding-bottom: 10px;
+}
+.footer h4 {
+  color: #fff;
+  font-size: 1.3rem;
+}
+.footer .tagline {
+  font-size: 0.85rem;
+  color: #ddd;
+}
+.social-icon {
+  font-size: 1.2rem;
+  color: #f8f9fa;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-icon:hover {
+  color: #ffdd57;
+  transform: scale(1.2);
+}
+.footer small {
+  color: #e9ecef;
+  font-size: 0.8rem;
+}

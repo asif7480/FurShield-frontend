@@ -1,0 +1,69 @@
+.animate-fade {
+  animation: fadeIn 0.8s ease-in-out;
+}
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f8f9fa;
+  padding: 20px;
+}
+.product-img {
+  max-height: 420px;
+  object-fit: cover;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  border-radius: 16px;
+}
+.product-img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+.product-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  animation: slideUp 0.8s ease-in-out;
+}
+.animate-btn {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  padding: 12px 24px;
+}
+.animate-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+}
+@media (max-width: 768px) {
+  .product-details {
+    text-align: center;
+  }
+
+  .product-img {
+    max-height: 300px;
+  }
+
+  .d-flex {
+    justify-content: center;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

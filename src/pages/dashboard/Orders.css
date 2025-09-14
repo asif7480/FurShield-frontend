@@ -1,0 +1,123 @@
+.orders-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.orders-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+.orders-subtitle span {
+  color: #007bff;
+  font-weight: 600;
+}
+.orders-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+.orders-table th {
+  color: #2c3e50;
+  font-weight: 600;
+  text-align: center;
+}
+.orders-table td {
+  color: #555;
+  text-align: center;
+}
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.status-badge.delivered {
+  background: #d4edda;
+  color: #155724;
+}
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+.status-badge.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+}
+.btn-action {
+  border: none;
+  background: transparent;
+  margin-left: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.btn-action:hover {
+  transform: scale(1.2);
+}
+.fade-in {
+  animation: fadeInUp 0.6s ease;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .orders-title {
+    font-size: 1.4rem;
+  }
+  .orders-card {
+    padding: 1rem;
+  }
+  .orders-table th,
+  .orders-table td {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 576px) {
+  .orders-table,
+  .orders-table thead,
+  .orders-table tbody,
+  .orders-table th,
+  .orders-table td,
+  .orders-table tr {
+    display: block;
+    width: 100%;
+  }
+  .orders-table thead {
+    display: none;
+  }
+  .orders-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  .orders-table td {
+    text-align: left;
+    padding: 8px 10px;
+    position: relative;
+  }
+  .orders-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #007bff;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .text-end {
+    text-align: left !important;
+  }
+}

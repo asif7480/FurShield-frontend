@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p1",
+    "name": "Premium Dry Dog Food - Chicken",
+    "category": "Food",
+    "price": 1999,
+    "image": "./premiumdry.jpg",
+    "description": "High protein chicken kibble for adult dogs."
+  },
+  {
+    "id": "p2",
+    "name": "Cat Grooming Brush",
+    "category": "Grooming",
+    "price": 799,
+    "image": "https://source.unsplash.com/800x600/?cat,brush",
+    "description": "Soft bristles for reducing shedding."
+  },
+  {
+    "id": "p3",
+    "name": "Bird Seed Mix - 1kg",
+    "category": "Food",
+    "price": 499,
+    "image": "https://source.unsplash.com/800x600/?bird,seed",
+    "description": "Nutritious mix for parrots and small birds."
+  },
+  {
+    "id": "p4",
+    "name": "Dog Leash - Nylon",
+    "category": "Accessories",
+    "price": 399,
+    "image": "https://source.unsplash.com/800x600/?dog,leash",
+    "description": "Strong nylon leash with padded handle."
+  }
+]
