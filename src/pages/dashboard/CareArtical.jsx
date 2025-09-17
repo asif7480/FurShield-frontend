@@ -39,8 +39,8 @@ export default function CareArticle() {
         </p>
 
         <div className=" table-responsive">
-          <table className="pets-table table table-hover align-middle mb-0">
-            <thead className="table-dark">
+          <table className="pets-table table table-striped table-hover align-middle mb-0">
+            <thead className="table-primary">
               <tr>
                 <th>#</th>
                 <th>title</th>

@@ -21,7 +21,7 @@ export default function Users() {
           Manage all registered <span>users</span> in the system.
         </p>
 
-        <div className="table-wrapper">
+        <div className="table-responsive">
           <table className="users-table">
             <thead>
               <tr>

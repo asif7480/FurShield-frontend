@@ -22,19 +22,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   console.log(user);
 
   const handleLogout = async () => {
     try {
-      const res = await axiosInstance.post("/auth/logout");
-      if (res.data.success) {
-        toast.success(res.data.message || "Logged out successfully");
-        setUser(null); // clear user info in context
-        navigate("/login"); // redirect immediately
-      } else {
-        toast.error(res.data.message || "Logout failed");
-      }
+      await logout()
+      navigate("/login")
     } catch (err) {
       console.error("Logout error:", err);
       toast.error("Something went wrong during logout");
@@ -83,6 +77,15 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
             </li>
+            {
+              user ? (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
+                </li>
+              ) : (
+                <></>
+              )
+            }
             <li className="nav-item">
               <Link className="nav-link position-relative" to="/cart" onClick={() => setIsOpen(false)}>
                 <FaShoppingCart size={18} />
@@ -93,6 +96,7 @@ export default function Navbar() {
                 )}
               </Link>
             </li>
+
 
             {/* Login + Logout Icon */}
             <li className="nav-item d-flex align-items-center gap-2">

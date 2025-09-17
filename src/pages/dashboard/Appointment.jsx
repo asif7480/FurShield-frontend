@@ -8,63 +8,71 @@ import { useGlobal } from "../../context/GlobalContext";
 export default function Appointment() {
   const { appointments, getAllAppointments } = useGlobal()
 
-  useEffect( () => {
+  useEffect(() => {
     getAllAppointments()
   }, [])
 
+  console.log("Appointments", appointments);
+  
+
+  // if (!appointments) {
+  //   return <div>Loading...</div>; // Or return any loading UI you prefer
+  // }
+
+  // if (appointments.length === 0) {
+  //   return <div>No appointments available</div>;
+  // }
+
   return (
     <Layout>
-             <div className="pets-page container py-4">
-               <div className="pets-header">
-                 <h3 className="pets-title">Appointments</h3>
-               </div>
-       
-               <p className="pets-subtitle">
-                 All <span>appointments</span> are listed here.
-               </p>
-       
-               <div className=" table-responsive">
-                 <table className="pets-table table table-hover align-middle mb-0">
-                   <thead className="table-dark">
-                     <tr>
-                       <th>#</th>
-                       <th>PetName</th>
-                       <th>OwnerName</th>
-                       <th>VetName</th>
-                       <th>Specialization</th>
-                       <th>Status</th>
-                       <th>Date</th>
-                       <th>Actions</th>
-                     </tr>
-                   </thead>
-    <tbody>
-                     {appointments.map((appointment, index) => (
-                       <tr key={appointment.id} className="fade-in">
-                         <td>{index + 1}</td>
-                         <td>{appointment.pet.name}</td>
-                         <td>{appointment.owner.name}</td>
-                         <td>{appointment.vet.name} years</td>
-                         <td>{appointment.vet.specialization}</td>
-                         <td>
-                           <span className={`status-badge ${appointment.status.toLowerCase()}`}>
-                             {appointment.status}
-                           </span>
-                         </td>
-   
-                         <td>{new Date(appointment.date).toLocaleDateString()}</td>
-                         <td>
-                           <button onClick={() => handleDelete(appointment._id)} className="btn btn-outline-danger">Delete</button>
-                         </td>
-                         {/* <td className="text-center">
-                           <button className="btn-action delete">🗑️</button>
-                         </td> */}
-                       </tr>
-                     ))}
-                   </tbody>
-                 </table>
-               </div>
-       
-               {/* <div className=" table-responsive">
+      <div className="pets-page container py-4">
+        <div className="pets-header">
+          <h3 className="pets-title">Appointments</h3>
+        </div>
+
+        <p className="pets-subtitle">
+          All <span>appointments</span> are listed here.
+        </p>
+
+        <div className=" table-responsive">
+          <table className="pets-table table table-striped table-hover align-middle mb-0">
+            <thead className="table-primary">
+              <tr>
+                <th>#</th>
+                <th>PetName</th>
+                <th>OwnerName</th>
+                <th>VetName</th>
+                <th>Specialization</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {appointments.map((appointment, index) => (
+                <tr key={index} className="fade-in">
+                  <td>{index + 1}</td>
+                  <td>{appointment.pet.name}</td>
+                  <td>{appointment.owner.name}</td>
+                  <td>{appointment.vet.name} years</td>
+                  <td>{appointment.vet.specialization}</td>
+                  <td>
+                    <span className={`status-badge ${appointment.status.toLowerCase()}`}>
+                      {appointment.status}
+                    </span>
+                  </td>
+
+                  <td>{new Date(appointment.date).toLocaleDateString()}</td>
+                  <td>
+                    <button onClick={() => handleDelete(appointment._id)} className="btn btn-outline-danger">Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        {/* <div className=" table-responsive">
                  <table className="pets-table table table-hover align-middle mb-0">
                    <thead className="table-dark">
                      <tr>
@@ -104,7 +112,7 @@ export default function Appointment() {
                    </tbody>
                  </table>
                </div> */}
-             </div>
-           </Layout>
+      </div>
+    </Layout>
   );
 }

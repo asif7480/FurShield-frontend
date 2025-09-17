@@ -6,35 +6,48 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import axiosInstance from '../../axios/axiosInstance';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth()
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const res = await axiosInstance.post("/auth/login", form);
-
-      if (res.data.success) {
-        toast.success(res.data.message || "Login successful");
-
-        // The cookie is automatically saved (http-only)
-        // You can use user info from res.data.user
-        // Navigate based on role or just to home
-        if (res.data.user.role === "admin" || res.data.user.role === "shelter") {
-          navigate("/dashboard"); // example admin/shelter dashboard
-        } else if (res.data.user.role === "vet") {
-          navigate("/vet-dashboard");
-        } else {
-          navigate("/"); // pet owner homepage
-        }
-      } else {
-        toast.error(res.data.message || "Login failed");
+      let response = await login(form)
+      // console.log(response);
+      const { user } = response.data
+      console.log(user);
+      if (user.role === "admin" || user.role === "vet" || user.role === "shelter") {
+        navigate("/dashboard")
       }
+
+      if (user.role === "owner") {
+        navigate("/")
+      }
+      // const res = await axiosInstance.post("/auth/login", form);
+
+      // if (res.data.success) {
+      //   toast.success(res.data.message || "Login successful");
+
+      //   // The cookie is automatically saved (http-only)
+      //   // You can use user info from res.data.user
+      //   // Navigate based on role or just to home
+      //   if (res.data.user.role === "admin" || res.data.user.role === "shelter") {
+      //     navigate("/dashboard"); // example admin/shelter dashboard
+      //   } else if (res.data.user.role === "vet") {
+      //     navigate("/dashboard");
+      //   } else {
+      //     navigate("/"); // pet owner homepage
+      //   }
+      // } else {
+      //   toast.error(res.data.message || "Login failed");
+      // }
     } catch (err) {
       console.error("Login error:", err);
       toast.error(

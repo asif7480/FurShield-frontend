@@ -102,6 +102,21 @@ export const GlobalContextProvider = ({ children }) => {
         }
     }
 
+    const getAllAppointments = async () => {
+        try {
+            const response = await axiosInstance.get("/appointments")
+            console.log(response);
+            const { data: { message, success, data } } = response
+            setAppointments(data)            
+            // console.log(data);
+
+
+            return { message, data }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     const getOwnerAppointments = async () => {
         try {
             const response = await axiosInstance.get(`/appointments/owner`)
@@ -125,76 +140,67 @@ export const GlobalContextProvider = ({ children }) => {
         }
     }
 
-    const deleteAppointment = async(id) => {
-        try{
+    const deleteAppointment = async (id) => {
+        try {
             const response = await axiosInstance.delete(`/appointments/${id}`)
             return response
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-    const getAllAppointments = async() => {
-        try{
-            const response = await axiosInstance.get("/appointments")
-            const { data: { message, success, data } } = response
-            setAppointments(data)
-            return { message, data }
-        }catch(err){
-            console.log(err)
-        }
-    }
 
-    const getAllArticles = async() => {
-        try{
+    const getAllArticles = async () => {
+        try {
             const response = await axiosInstance.get("/articles")
             const { data: { message, success, data } } = response
             setArticles(data)
             return { message, data }
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-    const createArticles = async() => {
-        try{
+    const createArticles = async () => {
+        try {
             const response = await axiosInstance.get("/articles")
             const { data: { message, success, data } } = response
             setArticles(data)
             return { message, data }
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-    const updateArticle = async() => {
-        try{
+    const updateArticle = async () => {
+        try {
             const response = await axiosInstance.get("/articles")
             const { data: { message, success, data } } = response
             setArticles(data)
             console.log(articles);
-            
+
             return { message, data }
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
-    const deleteArticle = async() => {
-        try{
+    const deleteArticle = async () => {
+        try {
             const response = await axiosInstance.get("/articles")
             const { data: { message, success, data } } = response
             setArticles(data)
             return { message, data }
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
 
     return (
-        <GlobalContext.Provider value={{ 
-                products, setProducts, pets, setPets, ownerAppointments, setOwnerAppointments, vetAppointments, setVetAppointments, appointments, setAppointments, articles, setArticles, loading, setLoading, error, setError, 
-                getAllProducts, createProduct, updateProduct, deleteProduct, getAllPets, createPet, updatePet, deletePet, getOwnerAppointments, getVetAppointments, deleteAppointment, getAllAppointments,getAllArticles, createArticles, updateArticle, deleteArticle }}>
+        <GlobalContext.Provider value={{
+            products, setProducts, pets, setPets, ownerAppointments, setOwnerAppointments, vetAppointments, setVetAppointments, appointments, setAppointments, articles, setArticles, loading, setLoading, error, setError,
+            getAllProducts, createProduct, updateProduct, deleteProduct, getAllPets, createPet, updatePet, deletePet, getOwnerAppointments, getVetAppointments, deleteAppointment, getAllAppointments, getAllArticles, createArticles, updateArticle, deleteArticle
+        }}>
             {children}
         </GlobalContext.Provider>
     )

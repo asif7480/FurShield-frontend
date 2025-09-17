@@ -63,9 +63,9 @@ export default function Product() {
           Manage all <span>products</span> available in the store.
         </p>
 
-        <div className="table-wrapper">
-          <table className="products-table">
-            <thead>
+        <div className="table-responsive">
+          <table className="products-table table table-striped table-hover align-middle mb-0">
+            <thead className='table-primary'>
               <tr>
                 <th>#</th>
                 <th>Image</th>

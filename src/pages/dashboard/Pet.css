@@ -1,4 +1,3 @@
-
 .pets-header {
   display: flex;
   justify-content: space-between;
@@ -20,12 +19,15 @@
   background: #218838;
 }
 
-
 .pets-table {
   width: 100%;
   border-collapse: collapse;
 }
 
+.pets-table thead {
+  background: #007bff;
+  color: #fff;
+}
 .pets-table th,
 .pets-table td {
   padding: 12px 15px;

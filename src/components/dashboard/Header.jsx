@@ -7,9 +7,21 @@ import {
   FiMenu,
 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Header({ toggleSidebar }) {
   const navigate = useNavigate();
+  const { user, logout } = useAuth()
+  const firstLetter = user?.name.split("")[0]
+
+  const handleLogout = async () => {
+    try {
+      await logout()
+      navigate("/login")
+    } catch (err) {
+      console.log(err)
+    }
+  }
 
   return (
     <header className="header">
@@ -37,12 +49,12 @@ export default function Header({ toggleSidebar }) {
           className="admin-profile"
           onClick={() => navigate("/dashboard/profile")}
         >
-          <div className="admin-avatar">A</div>
-          <span className="admin-name">Admin</span>
+          <div className="admin-avatar">{firstLetter}</div>
+          <span className="admin-name">{user?.name}</span>
         </div>
 
         {/* 🚪 Logout */}
-        <div className="logout-icon" onClick={() => navigate("/login")}>
+        <div className="logout-icon" onClick={handleLogout}>
           <FiLogOut />
           <span className="tooltip">Sign out</span>
         </div>

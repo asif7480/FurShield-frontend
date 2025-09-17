@@ -8,7 +8,7 @@ import { useGlobal } from "../../context/GlobalContext";
 export default function Pet() {
   const { pets, getAllPets, deletePet } = useGlobal()
 
-  useEffect(() => {
+  useEffect(() => { 
     getAllPets()
   }, [])
 
@@ -38,9 +38,9 @@ export default function Pet() {
           Manage all <span>registered pets</span> here.
         </p>
 
-        <div className=" table-responsive">
-          <table className="pets-table table table-hover align-middle mb-0">
-            <thead className="table-dark">
+        <div className="table-responsive">
+          <table className="pets-table table table-striped table-hover align-middle mb-0">
+            <thead className="table-primary">
               <tr>
                 <th>#</th>
                 <th>Name</th>

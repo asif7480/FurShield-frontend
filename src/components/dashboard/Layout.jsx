@@ -1,16 +1,24 @@
 
-
-
-// src/components/dashboard/Layout.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import "./Layout.css";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Layout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  const { loading, user, profile } = useAuth()
+    useEffect(() => {
+        profile()
+    }, [])
+
+  if (loading) {
+    return "loading...."
+  }
+
+
 
   return (
     <div className="dashboard d-flex">
