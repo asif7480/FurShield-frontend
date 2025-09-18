@@ -161,12 +161,10 @@ export const GlobalContextProvider = ({ children }) => {
         }
     }
 
-    const createArticles = async () => {
+    const createArticle = async (data) => {
         try {
-            const response = await axiosInstance.get("/articles")
-            const { data: { message, success, data } } = response
-            setArticles(data)
-            return { message, data }
+            const response = await axiosInstance.post("/articles", data)
+            return response
         } catch (err) {
             console.log(err)
         }
@@ -199,7 +197,7 @@ export const GlobalContextProvider = ({ children }) => {
     return (
         <GlobalContext.Provider value={{
             products, setProducts, pets, setPets, ownerAppointments, setOwnerAppointments, vetAppointments, setVetAppointments, appointments, setAppointments, articles, setArticles, loading, setLoading, error, setError,
-            getAllProducts, createProduct, updateProduct, deleteProduct, getAllPets, createPet, updatePet, deletePet, getOwnerAppointments, getVetAppointments, deleteAppointment, getAllAppointments, getAllArticles, createArticles, updateArticle, deleteArticle
+            getAllProducts, createProduct, updateProduct, deleteProduct, getAllPets, createPet, updatePet, deletePet, getOwnerAppointments, getVetAppointments, deleteAppointment, getAllAppointments, getAllArticles, createArticle, updateArticle, deleteArticle
         }}>
             {children}
         </GlobalContext.Provider>

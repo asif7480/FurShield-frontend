@@ -29,7 +29,7 @@ export default function CareArticle() {
       <div className="pets-page container py-4">
         <div className="pets-header">
           <h3 className="pets-title">Care Articles</h3>
-          <Link to="/dashboard/addpet" className="btn-add">
+          <Link to="/dashboard/addArticle" className="btn-add">
             Add Article
           </Link>
         </div>

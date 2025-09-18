@@ -26,7 +26,7 @@ function useCountUp(target, duration = 900) {
 
 export default function Dashboard() {
   // final values (could come from API)
-  const final = { users: 120, products: 45, orders: 78, pets: 32 };
+  const final = { users: 15, products: 10, orders: 5, pets: 6 };
 
   // set animateTargets after mount to trigger CSS transitions
   const [animateTargets, setAnimateTargets] = useState({

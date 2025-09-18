@@ -32,14 +32,17 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from "./pages/auth/Login"
 import OwnerAppointment from './pages/dashboard/OwnerAppointment';
 import VetAppointment from './pages/dashboard/VetAppointment';
+import AddCareArticle from './pages/dashboard/AddCareArticle';
 
 function App() {
   return (
     <AppContextProvider>
-      <BrowserRouter> 
+      <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<PetOwnerRegister />} />
+          <Route path="/owner-register" element={<PetOwnerRegister />} />
+          <Route path="/shelter-register" element={<ShelterRegister />} />
+          <Route path="/veterinarian-register" element={<VeterinarianRegister />} />
 
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -47,8 +50,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/pet-profiles" element={<PetProfiles />} />
           {/* <Route path="/add-pet" element={<AddPet />} /> */}
-          <Route path="/shelter" element={<ShelterRegister />} />            
-          <Route path="/veterinarian" element={<VeterinarianRegister />} />  
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
@@ -69,16 +71,17 @@ function App() {
           <Route path="/dashboard/ownerAppointment" element={<OwnerAppointment />} />
           <Route path="/dashboard/vetAppointment" element={<VetAppointment />} />
 
-          <Route path='/dashboard/addappointment'element={<AddAppointment/>}/>
-          
-          <Route path='/dashboard/profile'element={<Profile/>} />
-          <Route path='/dashboard/notification'element={<Notification/>}/>
-          <Route path="/dashboard/careartical" element={<CareArtical />} />
-          <Route path="/dashboard/healthrecord" element={<HealthRecord />} />
-          <Route path="/dashboard/Shelter" element={<Shelter/>} />
+          <Route path='/dashboard/addappointment' element={<AddAppointment />} />
 
-          
-          <Route path='/dashboard/updateappointment/:id'element={<UpdateAppointment/>}/>
+          <Route path='/dashboard/profile' element={<Profile />} />
+          <Route path='/dashboard/notification' element={<Notification />} />
+          <Route path="/dashboard/careartical" element={<CareArtical />} />
+          <Route path='/dashboard/addArticle' element={<AddCareArticle />} />
+          <Route path="/dashboard/healthrecord" element={<HealthRecord />} />
+          <Route path="/dashboard/Shelter" element={<Shelter />} />
+
+
+          <Route path='/dashboard/updateappointment/:id' element={<UpdateAppointment />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

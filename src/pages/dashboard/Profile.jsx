@@ -1,28 +1,30 @@
 // src/pages/dashboard/Profile.jsx
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../../components/dashboard/Layout";
 import "./Profile.css";
+import { useGlobal } from "../../context/GlobalContext";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Profile() {
-  const admin = {
-    name: "Admin",
-    email: "admin@example.com",
-    role: "Super Admin",
-    joined: "Jan 2023",
-  };
+  const { profile, user } = useAuth()
+  console.log(user);
 
+  function capitalize(str) {
+    return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+  }
   return (
     <Layout>
       <div className="profile-page container py-4">
-        <h3 className="page-title">👤 Admin Profile</h3>
+        <h3 className="page-title">Profile</h3>
 
         <div className="profile-card">
-          <div className="avatar">A</div>
-          <h4>{admin.name}</h4>
-          <p>{admin.role}</p>
+          <div className="avatar">{user?.name.split("")[0]}</div>
+          <h4>{user?.name}</h4>
+          <p>{capitalize(user?.role)}</p>
           <div className="info">
-            <p><strong>Email:</strong> {admin.email}</p>
-            <p><strong>Joined:</strong> {admin.joined}</p>
+            <p><strong>Email:</strong> {user?.email}</p>
+            <p><strong>Contact:</strong> {user?.contactNumber}</p>
+            <p><strong>Joined:</strong> {new Date(user?.createdAt).toLocaleDateString()}</p>
           </div>
           <button className="btn-edit">✏️ Edit Profile</button>
         </div>

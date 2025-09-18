@@ -1,17 +1,15 @@
 // src/pages/dashboard/AddProduct.jsx
 import React, { useState } from "react";
 import Layout from "../../components/dashboard/Layout";
-import "./AddProduct.css";
+import "./Form.css";
 import { useGlobal } from "../../context/GlobalContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
 
   const { loading, createProduct } = useGlobal()
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate()
-
-  console.log(loading);
 
   const [form, setForm] = useState({
     name: "",
@@ -56,7 +54,7 @@ export default function AddProduct() {
       navigate(`/dashboard/products`)
     } catch (err) {
       console.log(err);
-    }finally{
+    } finally {
       setIsSubmitting(false)
     }
 
@@ -64,10 +62,14 @@ export default function AddProduct() {
 
   return (
     <Layout>
-      <div className="addproduct-page container py-4">
+      <div className="container py-4">
         <h3 className="page-title">➕ Add Product</h3>
-        <form className="addproduct-form" onSubmit={handleSubmit}>
+        <div className="d-flex justify-content-center">
+          <Link to={`/dashboard/products`} className="btn btn-primary">View All Products</Link>
+        </div>
+        <form className="form-container" onSubmit={handleSubmit}>
           <input
+            className="form-control"
             type="text"
             name="name"
             placeholder="Product Name"
@@ -76,6 +78,7 @@ export default function AddProduct() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="category"
             placeholder="Category"
@@ -84,6 +87,7 @@ export default function AddProduct() {
             required
           />
           <input
+            className="form-control"
             type="number"
             name="price"
             placeholder="Price (Rs.)"
@@ -92,6 +96,7 @@ export default function AddProduct() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="description"
             placeholder="Description"
@@ -101,12 +106,13 @@ export default function AddProduct() {
           />
 
           <input
+            className="form-control"
             type="file"
             name="image"
             accept="image/*"
             onChange={handleImage}
           />
-          <button type="submit" className="btn-submit">
+          <button type="submit" className="btn btn-primary">
             {isSubmitting ? "Adding..." : `Add Product`}
           </button>
         </form>

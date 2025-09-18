@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import Layout from "../../components/dashboard/Layout";
-import "./UpdatePet.css";
+import "./Form.css";
 import { useGlobal } from "../../context/GlobalContext";
 
 export default function UpdatePet() {
@@ -57,8 +57,9 @@ export default function UpdatePet() {
     <Layout>
       <div className="updatepet-page container py-4">
         <h3 className="page-title">✏️ Update Pet</h3>
-        <form className="pet-form" onSubmit={handleSubmit}>
+        <form className="form-container" onSubmit={handleSubmit}>
           <input
+            className="form-control"
             type="text"
             name="name"
             placeholder="Pet Name"
@@ -67,6 +68,7 @@ export default function UpdatePet() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="species"
             placeholder="Species (Dog, Cat...)"
@@ -75,6 +77,7 @@ export default function UpdatePet() {
             required
           />
         <input
+            className="form-control"
             type="text"
             name="breed"
             placeholder="Breed"
@@ -83,6 +86,7 @@ export default function UpdatePet() {
             required
           />
           <input
+            className="form-control"
             type="number"
             name="age"
             placeholder="Age"
@@ -90,12 +94,13 @@ export default function UpdatePet() {
             onChange={handleChange}
             required
           />
-          <select name="status" value={form.status} onChange={handleChange}>
+          <select className="form-control" name="status" value={form.status} onChange={handleChange}>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
 
           <input
+            className="form-control"
             type="string"
             name="medicalHistory"
             placeholder="Medical History"
@@ -103,7 +108,7 @@ export default function UpdatePet() {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn-submit">
+          <button type="submit" className="btn btn-primary">
             { isSubmitting ? "Updating..." : "Update Pet" }
           </button>
         </form>

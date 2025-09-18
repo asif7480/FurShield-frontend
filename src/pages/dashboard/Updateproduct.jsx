@@ -1,8 +1,8 @@
 // src/pages/dashboard/Update.jsx
 import React, { useState, useEffect } from "react";
-import { useLocation, useParams, useNavigate } from "react-router-dom";
+import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import Layout from "../../components/dashboard/Layout";
-import "./Updateproduct.css";
+import "./Form.css";
 import { useGlobal } from "../../context/GlobalContext";
 
 export default function UpdateProduct() {
@@ -55,10 +55,14 @@ export default function UpdateProduct() {
 
   return (
     <Layout>
-      <div className="update-page container py-4">
+      <div className="container py-4">
         <h3 className="page-title">✏️ Update Product</h3>
-        <form className="update-form" onSubmit={handleSubmit}>
+        <div className="d-flex justify-content-center">
+          <Link to={`/dashboard/products`} className="btn btn-primary">View All Products</Link>
+        </div>
+        <form className="form-container" onSubmit={handleSubmit}>
           <input
+            className="form-control"
             type="text"
             name="name"
             placeholder="Product Name"
@@ -67,6 +71,7 @@ export default function UpdateProduct() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="category"
             placeholder="Category"
@@ -75,6 +80,7 @@ export default function UpdateProduct() {
             required
           />
           <input
+            className="form-control"
             type="number"
             name="price"
             placeholder="Price (Rs.)"
@@ -83,6 +89,7 @@ export default function UpdateProduct() {
             required
           />
           <textarea
+            className="form-control"
             name="description"
             placeholder="Description"
             value={form.description}
@@ -90,7 +97,7 @@ export default function UpdateProduct() {
             required
             rows="4"
           />
-          <button type="submit" className="btn-submit" disabled={isSubmitting}>
+          <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
             {isSubmitting ? "Updating..." : "Update Product"}
           </button>
         </form>

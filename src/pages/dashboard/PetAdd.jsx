@@ -1,8 +1,9 @@
 // src/pages/dashboard/AddPet.jsx
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Layout from "../../components/dashboard/Layout";
 import "./Pet.css";
+import "./Form.css";
 import { useGlobal } from "../../context/GlobalContext";
 
 export default function PetAdd() {
@@ -52,8 +53,12 @@ export default function PetAdd() {
     <Layout>
       <div className="addpet-page container py-4">
         <h3 className="page-title">➕ Add New Pet</h3>
-        <form className="pet-form" onSubmit={handleSubmit}>
+        <div className="d-flex justify-content-center">
+          <Link to={`/dashboard/pet`} className="btn btn-primary">View All Pets</Link>
+        </div>
+        <form className="form-container" onSubmit={handleSubmit}>
           <input
+            className="form-control"
             type="text"
             name="name"
             placeholder="Pet Name"
@@ -62,6 +67,7 @@ export default function PetAdd() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="species"
             placeholder="Species (Dog, Cat...)"
@@ -70,6 +76,7 @@ export default function PetAdd() {
             required
           />
           <input
+            className="form-control"
             type="text"
             name="breed"
             placeholder="Breed"
@@ -78,6 +85,7 @@ export default function PetAdd() {
             required
           />
           <input
+            className="form-control"
             type="number"
             name="age"
             placeholder="Age"
@@ -86,12 +94,13 @@ export default function PetAdd() {
             required
           />
 
-          <select name="status" value={form.status} onChange={handleChange}>
+          <select className="form-control" name="status" value={form.status} onChange={handleChange}>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
 
           <input
+            className="form-control"
             type="string"
             name="medicalHistory"
             placeholder="Medical History"
@@ -100,7 +109,7 @@ export default function PetAdd() {
             required
           />
 
-          <button type="submit" className="btn-submit">
+          <button type="submit" className="btn btn-primary">
             {isSubmitting ? "Adding..." : "Add Pet"}
           </button>
 

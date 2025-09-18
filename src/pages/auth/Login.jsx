@@ -100,19 +100,19 @@ export default function Login() {
           <div className="d-flex flex-column gap-2">
             <button
               className="btn btn-outline-primary"
-              onClick={() => navigate("/register")}
+              onClick={() => navigate("/owner-register")}
             >
               Pet Owner
             </button>
             <button
               className="btn btn-outline-success"
-              onClick={() => navigate("/shelter")}
+              onClick={() => navigate("/shelter-register")}
             >
               Animal Shelter
             </button>
             <button
               className="btn btn-outline-warning"
-              onClick={() => navigate("/veterinarian")}
+              onClick={() => navigate("/veterinarian-register")}
             >
               Veterinarian
             </button>

@@ -57,16 +57,9 @@ export default function Navbar() {
               <Link className="nav-link" to="/" onClick={() => setIsOpen(false)}>Home</Link>
             </li>
             <li className="nav-item dropdown">
-              <Link className="nav-link dropdown-toggle" to="/products" role="button" data-bs-toggle="dropdown">
+              <Link className="nav-link" to="/products" role="button" data-bs-toggle="dropdown">
                 Products
               </Link>
-              <ul className="dropdown-menu">
-                <li>
-                  <Link className="dropdown-item" to="/products" onClick={() => setIsOpen(false)}>
-                    All Products
-                  </Link>
-                </li>
-              </ul>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/pet-profiles" onClick={() => setIsOpen(false)}>Pet Profiles</Link>
@@ -77,15 +70,6 @@ export default function Navbar() {
             <li className="nav-item">
               <Link className="nav-link" to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
             </li>
-            {
-              user ? (
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
-                </li>
-              ) : (
-                <></>
-              )
-            }
             <li className="nav-item">
               <Link className="nav-link position-relative" to="/cart" onClick={() => setIsOpen(false)}>
                 <FaShoppingCart size={18} />
@@ -106,7 +90,9 @@ export default function Navbar() {
                 </Link>
               ) : (
                 <>
-                  <span className="nav-link">{user.name}</span>
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/dashboard" onClick={() => setIsOpen(false)}>Dashboard</Link>
+                  </li>
                   <div className="logout-icon" onClick={handleLogout}>
                     <FiLogOut size={20} />
                     <span className="tooltip">Sign out</span>

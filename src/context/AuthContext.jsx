@@ -12,13 +12,26 @@ export default function AuthContextProvider({ children }) {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    const login = async(data) => {
-        try{
+    const register = async (data) => {
+        try {
+            const response = await axiosInstance.post("/auth/register", data, {
+                headers: { "Content-Type": "multipart/form-data" }
+            })
+            return response
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const login = async (data) => {
+        try {
             const response = await axiosInstance.post(`/auth/login`, data)
             return response
-        }catch(err){
+        } catch (err) {
             console.log(err)
-        }finally{
+        } finally {
             setLoading(false)
         }
     }
@@ -35,20 +48,20 @@ export default function AuthContextProvider({ children }) {
         }
     }
 
-    const logout = async() => {
-        try{
+    const logout = async () => {
+        try {
             const response = await axiosInstance.post(`/auth/logout`)
             setUser(null)
             // console.log(response);
-        }catch(err){
+        } catch (err) {
             console.log(err);
-        }finally{
+        } finally {
 
         }
     }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, loading, setLoading, login, profile, logout }}>
+        <AuthContext.Provider value={{ user, setUser, loading, setLoading, register, login, profile, logout }}>
             {children}
         </AuthContext.Provider>
     )
